@@ -67,8 +67,20 @@ let Disponibles = []
         color: "verde",
         tamaño: "Grande",
         precio: 600
-    };
+    };  
+    const nombres = Disponibles.map((el) => el.nombre)
+    console.log(nombres)
 
+    const actualizado = Disponibles.map((el) => {
+        return {
+            nombre: el.nombre,
+            precio: producto.sumarIva,
+        }
+    })
+    
+    console.log(actualizado)
+
+    
 console.log(producto1);
 console.log(producto2);
 console.log(producto3);
