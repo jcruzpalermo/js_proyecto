@@ -1,42 +1,84 @@
 let nombre = prompt("Hola! ¿Como te llamas?");
 console.log("Bienvenido " + nombre + " a Buscando florecer");
 
-function producto(nombre, color, tamaño, precio) {
-    this.nombre = nombre;
-    this.color = color;
+class Producto{
+    constructor (nombre, precio, tamaño, color, disponible) {
+    this.nombre = nombre.toUpperCase();
+    this.precio = parseFloat(precio);
     this.tamaño = tamaño;
-    this.precio = precio;
+    this.color = color;
+    this.disponible = disponible;
+    }
+    sumarIva() {
+        return this.precio*1.21;
+    }
+    Vender() {
+        this.disponible = False;
+    }
+    precioSugerido() {
+        return this.precio * 1.21 * 1.50;
+    }
 }
-const producto1 = new producto(
-    " Shampoo,",
-    " Blanco,",
-    " Standard,",
-    400
-);
-const producto2 = new producto(
-    " Jabon artesanal,",
-    " Rosa,",
-    " Grande,",
-    300
-);
-const producto3 = new producto(
-    " Cepilo de Dientes,",
-    " Negro,",
-    " Pequeño,",
-    240
-);
-const producto4 = new producto(
-    " Agua de Rosas,",
-    " verde,",
-    " Grande,",
-    23600
-);
+//Array de productos
+let Productos = [];
+do{
+    let Comprobar = prompt("Ingrese un producto o fin para terminar");
+    if(Comprobar === "fin"|| Comprobar==="FIN"|| Comprobar === "Fin" ){
+        break;
+    }else{
+        nombreP = Comprobar;
+    let precioP = prompt("ingrese el precio del producto");
+    let tamañoP = prompt("ingrese el tamaño del producto");
+    let colorP = prompt("Ingrese el color del producto");
+    Productos.push(new Productos(nombreP, precioP, tamañoP, colorP));
+    }
+}
+while (Comprobar !="fin" || Comprobar != "FIN" || Comprobar !="Fin")
+
+for(const producto of Productos )
+    producto.sumarIva()
+
+console.log(producto);
+//array de productos disponibles
+let Disponibles = []
+    producto1 = {
+        nombre: "Shampoo",
+        color: "Blanco",
+        tamaño: "Estandar",
+        precio: 400,
+    };
+     producto2 = 
+      {
+        nombre: "Jabon Artesanal",
+        color: "rosa",
+        tamaño: "Grande",
+        precio: 300,
+    };
+     producto3 = 
+     {
+        nombre: "cepillo de dientes",
+        color: negro,
+        tamaño: pequeño,
+        precio: 240,
+    };
+     producto4 = 
+     {
+        nombre: "Agua de Rosas",
+        color: "verde",
+        tamaño: "Grande",
+        precio: 600
+    };
+
 console.log(producto1);
 console.log(producto2);
 console.log(producto3);
 console.log(producto4);
 
-let compraProducto1 = prompt(
+//array de unidades a comprar
+let unidades = []
+
+    compraProducto1 = 
+    prompt(
     "Por favor seleccione cuantas unidades quiere: " +
     producto1.nombre +
     producto1.color +
@@ -100,12 +142,13 @@ console.log(
     " unidades. Subtotal=" +
     producto4.precio * compraProducto4
 );
-
-let subtotal1 = compraProducto1 * producto1.precio;
-let subtotal2 = compraProducto2 * producto2.precio;
-let subtotal3 = compraProducto3 * producto3.precio;
-let subtotal4 = compraProducto4 * producto4.precio;
-let subtotal = subtotal1 + subtotal2 + subtotal3 + subtotal4;
+//Array para subtotal
+let Subtotal = [] 
+    {subtotal1 = compraProducto1 * producto1.precio};
+    {subtotal2 = compraProducto2 * producto2.precio};
+    {subtotal3 = compraProducto3 * producto3.precio};
+    {subtotal4 = compraProducto4 * producto4.precio};
+    {subtotal = subtotal1 + subtotal2 + subtotal3 + subtotal4};
 
 let envio = prompt(
     "Selecciona metodo de envio" +
